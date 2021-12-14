@@ -1,0 +1,31 @@
+<i><u>
+        <h1>Наши заказчики</h1>
+    </u></i>
+
+{{#if todos.length}}
+<ul>
+    {{#each todos}}
+        <li class = "todo">
+            <form action="/complete" method="POST">
+                <label>
+                    {{#if comleted}}
+                    <input type="checkbox" checked>
+                    <span class="completed">{{title}}</span>
+                    {{else}}
+                    <input type="checkbox">
+                    <span>{{title}}</span>
+                    {{/if}}
+
+                    <input type="hidden" value="{{_id}}" name="id">
+                    
+                    <button class="btn btn-small" type="submit">Сохранить</button>
+                    </label>
+            </form>
+        </li>
+    {{/each}}
+</ul>
+{{else}}
+<i><u>
+        <p> нет заказчиков</p>
+    </u></i>
+{{/if}}
